@@ -189,9 +189,9 @@ links_settings:
 
 links:
   #Title: https://example.com
-  ctf相关:https://hello-ctf.com
-  web入门:https://portswigger.net/web-security
-  学习参考:https://pwn.college/
+  ctf相关: https://hello-ctf.com
+  web入门: https://portswigger.net/web-security
+  学习参考: https://pwn.college/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
