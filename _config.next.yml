@@ -107,7 +107,7 @@ menu:
   tags: /tags/ || fa fa-tags
   #categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
-  notes: /notes/ || fa fa-book
+  #notes: /notes/ || fa fa-book
   search: /search/ || fa fa-search
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
