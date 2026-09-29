@@ -1,4 +1,5 @@
 ---
+简单测试
 title: DVWA SQL Injection 学习记录
 date: 2026-09-29
 categories:
