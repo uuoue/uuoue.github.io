@@ -8,14 +8,49 @@ media_folder: "source/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "posts"
-    label: "文章"
-    folder: "source/_posts"
+  - name: posts
+    label: 文章
+    folder: source/_posts
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
     fields:
-      - { label: "标题", name: "title", widget: "string" }
-      - { label: "发布日期", name: "date", widget: "datetime" }
-      - { label: "分类", name: "categories", widget: "list" }
-      - { label: "标签", name: "tags", widget: "list" }
-      - { label: "正文", name: "body", widget: "markdown" }
+      - label: 标题
+        name: title
+        widget: string
+
+      - label: 日期
+        name: date
+        widget: datetime
+
+      - label: 分类
+        name: categories
+        widget: list
+        required: false
+
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+
+      - label: 正文
+        name: body
+        widget: richtext
+        buttons:
+          - bold
+          - italic
+          - strikethrough
+          - code
+          - link
+          - heading-one
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        modes:
+          - rich_text
+          - raw
+        editor_components:
+          - image
+          - code-block
