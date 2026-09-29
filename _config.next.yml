@@ -185,9 +185,13 @@ links_settings:
   icon: fa fa-globe
   # Available values: block | inline
   layout: block
+  title:学习网站
 
 links:
   #Title: https://example.com
+  ctf相关:https://hello-ctf.com
+  web入门:https://portswigger.net/web-security
+  学习参考:https://pwn.college/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
