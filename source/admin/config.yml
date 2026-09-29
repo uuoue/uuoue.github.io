@@ -2,6 +2,7 @@ backend:
   name: turbo-github
   repo: uuoue/uuoue.github.io
   branch: main
+  turbo_site_id: 1f80e134-0c17-4c99-aedb-e5cb29e609d1
 
 media_folder: "source/images/uploads"
 public_folder: "/images/uploads"
