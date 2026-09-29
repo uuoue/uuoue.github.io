@@ -8,7 +8,6 @@ tags:
   - DVWA
   - SQL注入
   - Burp Suite
-  - 简单测试，怎么回事
 ---
 
 # 实验环境
@@ -19,7 +18,7 @@ tags:
 
 # SQL Injection
 
-今天学习了 DVWA 的 SQL Injection。
+今天学习了 DVWA 的 SQL Injection。很难啊
 
 ## Low
 
