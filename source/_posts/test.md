@@ -8,6 +8,7 @@ tags:
   - DVWA
   - SQL注入
   - Burp Suite
+description: 记录 DVWA SQL Injection 的实验环境搭建、Low 级别注入测试过程以及个人理解总结。
 ---
 
 # 实验环境
