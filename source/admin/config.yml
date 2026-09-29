@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: turbo-github
   repo: uuoue/uuoue.github.io
   branch: main
 
