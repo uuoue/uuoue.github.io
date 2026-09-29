@@ -147,6 +147,7 @@ sidebar:
   padding: 18
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
   offset: 12
+  sticky: true
 
 # Sidebar Avatar
 avatar:
