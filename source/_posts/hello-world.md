@@ -1,38 +1,60 @@
 ---
-title: Hello World
+title: 关于我
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+------
 
-## Quick Start
+# 关于我
 
-### Create a new post
+我是uuoue。
 
-``` bash
-$ hexo new "My New Post"
-```
+目前是一名网络空间安全专业的大三学生。
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+这个博客主要用来记录我的学习过程，包括一些网络安全相关的知识、靶场练习、踩过的坑，以及平时遇到的问题。
 
-### Run server
+## 关于网络安全
 
-``` bash
-$ hexo server
-```
+我现在还在入门阶段，主要学习 Web 安全。
 
-More info: [Server](https://hexo.io/docs/server.html)
+目前接触的东西比较杂，但大致会围绕这些内容：
 
-### Generate static files
+- Linux
+- 计算机网络
+- Python
+- HTTP / Web
+- Burp Suite
+- SQL 注入
+- XSS
+- 文件包含
+- 文件上传
+- DVWA
+- PortSwigger Web Security Academy
 
-``` bash
-$ hexo generate
-```
+很多东西我其实还不会，所以这里的文章也不会刻意写得很“专业”。
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+有些内容可能只是我刚刚搞懂的一个知识点，或者一道题的解题过程。
 
-### Deploy to remote sites
+我觉得把这些东西记录下来，以后回头看也挺有意义。
 
-``` bash
-$ hexo deploy
-```
+## 为什么写这个博客
 
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+以前学习的时候经常遇到一个问题：
+
+学过的东西过一段时间就忘了，遇到类似的问题又要重新搜索。
+
+所以想试着把自己真正学过、做过的东西留下来。
+
+不一定写得很好，但至少希望以后再遇到同样的问题时，可以回来看看自己当时是怎么解决的。
+
+## 目前的目标
+
+现在是大三，距离毕业已经没有太多时间了。
+
+所以现阶段不会想着什么都学，而是先把基础打好，多做一些实际的练习，慢慢积累能够写进简历里的东西。
+
+希望毕业的时候，至少能够有一些真正属于自己的项目和学习记录。
+
+这就是这个博客开始的原因。
+
+以后学到什么，就写什么。
+
+慢慢来。
