@@ -4,7 +4,7 @@
 
 # Site
 title: uuoue's blog
-subtitle: 'Awlays'
+subtitle: 'Always'
 description: ''
 keywords:
 author: uuoue
@@ -13,7 +13,8 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+# 替换为你的真实 GitHub Pages 域名
+url: https://uuoue.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
