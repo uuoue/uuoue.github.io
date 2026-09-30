@@ -25,7 +25,7 @@ union  select 只能接受__相同数据类型__，__相同列数__。由此可�
 > 在_MYSQL_中可利用`CONCAT()`，` 'union select 1,concat("username",'~',"password") from users --+'`;
 > 在 _Oracle_中用`'UNION SELECT username || '~' || password FROM users--`,输出结果将以~隔开
 
-![image-20260930163232297](D:\Blog\su-security-blog\source\images\image-20260930163232297.png)
+![image-20260930163232297](../images/image-20260930163232297.png)
 
 # 获取数据库信息
 
@@ -43,11 +43,11 @@ union  select 只能接受__相同数据类型__，__相同列数__。由此可�
 
 - 查表名
 
-  ![image-20260930170203188](D:\Blog\su-security-blog\source\images\image-20260930170203188.png)
+  ![image-20260930170203188](../images/image-20260930170203188.png)
 
-- 爆列名![image-20260930173006789](D:\Blog\su-security-blog\source\images\image-20260930173006789.png)
+- 爆列名![image-20260930173006789](../images/image-20260930173006789.png)
 
-- 爆账密码![image-20260930173133443](D:\Blog\su-security-blog\source\images\image-20260930173133443.png)
+- 爆账密码![image-20260930173133443](../images/image-20260930173133443.png)
 
 # 盲注
 
