@@ -12,6 +12,8 @@ description: 记录 burp平台实验学习
 
 # 基本注入方式
 
+[SQL查询](https://portswigger.net/web-security/sql-injection/cheat-sheet)
+
 1.确定列数
 
 union  select 只能接受__相同数据类型__，__相同列数__。由此可以利用报错信息判断列数  `' UNION SELECT NULL,NULL...`,也可以用`order by 1,2,..`判断。
@@ -63,5 +65,43 @@ union  select 只能接受__相同数据类型__，__相同列数__。由此可�
 
 # 报错注入（盲注）
 
-当页面不返回报错信息，也无法通过页面差异判断时，可以尝试报错注入
+当页面不返回报错信息，也无法通过页面差异判断时，可以尝试报错注入。基于Oracle的注入，先介绍一下基础知识。
 
+Oracle数据库不能直接执行`select 1`否则会报错，但可以通过`select 1 from dual`,`dual`表里只有一条数据。当输入 `'||(SELECT '' FROM dual)||'` 时，数据库能正常执行，说明它认这个语法。如果写成 `not-a-real-table` 报错，就反过来证明了它用的是 Oracle。
+
+`||`代表字符串拼接，例如`'a' || 'b'`结果就是'ab'。当你注入 `xyz'||(SELECT '' FROM dual)||'` 时，实际执行的 SQL 变成了：
+`SELECT * FROM tracking WHERE id = 'xyz' || (SELECT '' FROM dual) || ''`只要 `(SELECT ...)` 里面的查询是合法的，整个语句就能正常拼接起来。
+
+条件语句，`SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual`.作用就是，如果1=1，则执行TO_CHAR(1/0) 计算1/0是否报错，如果1不等于1，则返回空字符串
+
+![image-20261003211607171](../images/image-20261003211607171.png)
+
+首先抓包注入`'`尝试![image-20261003211945183](../images/image-20261003211945183.png)
+
+注入两个返回正常，注入''时候，后台数据为`'SELECT * FROM tracking WHERE id = 'xyz'''`。在 SQL 里，如果两个单引号紧挨着 `''`，它会被当做一个**“转义字符”**，表示一个**真实的单引号字符**，而不是字符串的边界。此时后台是查询`xyz'`的数据。其实可以用注释（。真实单引号，不会被当成闭合的单引号
+
+![image-20261003212115188](../images/image-20261003212115188.png)
+
+随便查询一个不存在的表名`||(SELECT '' FROM not-a-real-table)||'`,发现报错，这说明注入的语句被执行
+
+![image-20261003213656314](../images/image-20261003213656314.png)
+
+` '||(SELECT '' FROM users WHERE ROWNUM = 1)||'`从users表查询，只读取第一行数据，（注意Oracle读取太多内容无法拼接，所以限制读取第一行），然后返回空字符串，（这里的空字符串就是空的，拼接了个寂寞）若没报错返回200，则说明存在users表。
+
+![image-20261003214051601](../images/image-20261003214051601.png)
+
+`'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'`,查询user表中是否存在administrator,如果表里存在administrator那么执行`when 1=1`永远为真执行`TO_CHAR(1/0)`报错信息。可`where LENGTH(password)>1`,测试密码长度，返回正确则说明没有这个长度。测试为20位密码![image-20261003214826991](../images/image-20261003214826991.png)
+
+攻击，设置长度为1-20和密码![image-20261003220134090](../images/image-20261003220134090.png)
+
+## 下一个实验继续，
+
+利用强制类型转换失败的机制，在数据库的报错信息里看信息
+
+尝试注入，主要是告诉我们要注释内容，输入`' --`注释掉多出的引号![image-20261003220913927](../images/image-20261003220913927.png)
+
+`AND 1=CAST((SELECT username FROM users LIMIT 1) AS int)--`j结果报错太长，删了cookie再来![image-20261003221813083](../images/image-20261003221813083.png)
+
+直接爆出用户名![image-20261003222043234](../images/image-20261003222043234.png)
+
+继续查密码`' AND 1=CAST((SELECT password FROM users LIMIT 1) AS int)--`![image-20261003222130970](../images/image-20261003222130970.png)
