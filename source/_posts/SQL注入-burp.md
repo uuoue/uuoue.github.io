@@ -1,12 +1,13 @@
 ---
 title: burp学习路径-SQL
-date: 2026-09-30
+date: 2026-10-04
 categories:
   - SQL注入基础
+  - Burp Suite
 tags:
   - SQL注入
-  - Burp Suite
-description: 记录 burp平台实验学习
+
+description: 记录 burp平台实验学习-Sql
 
 ---
 
@@ -105,3 +106,8 @@ Oracle数据库不能直接执行`select 1`否则会报错，但可以通过`sel
 直接爆出用户名![image-20261003222043234](../images/image-20261003222043234.png)
 
 继续查密码`' AND 1=CAST((SELECT password FROM users LIMIT 1) AS int)--`![image-20261003222130970](../images/image-20261003222130970.png)
+
+# 时间盲注
+
+当应用程序处理里数据库错误，在响应中看不见任何错误差异，可以根据注入条件的真假触发时间延迟，条件为真就延迟，为假就不延迟。
+
