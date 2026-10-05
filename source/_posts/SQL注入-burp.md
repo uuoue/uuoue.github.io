@@ -2,7 +2,6 @@
 title: burp学习路径-SQL
 date: 2026-10-04
 categories:
-  - SQL注入基础
   - Burp Suite
 tags:
   - SQL注入
