@@ -14,7 +14,7 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 # 替换为你的真实 GitHub Pages 域名
-url: https://uuoue.github.io
+url: https://xuruo.date
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
