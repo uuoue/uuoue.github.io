@@ -5,7 +5,7 @@ categories:
   - 基础入门
 tags:
   - 小迪安全
-description: 记录 小迪课程学习笔记，基础课程第三天
+description: 记录 小迪课程学习笔记，基础课程第三天。
 ---
 
 # WAF
