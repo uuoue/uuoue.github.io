@@ -1,5 +1,5 @@
 ---
-title: 搭建安全拓展-小迪安全
+title:Web架构&OSS存储&负载均衡&CDN加速&反向代理&WAF防护
 date: 2026-10-4
 categories:
   - 基础入门
