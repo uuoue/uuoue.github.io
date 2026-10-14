@@ -4,7 +4,7 @@ categories:
   - 小迪安全
 tags:
   - 基础入门
-description: 记录 小迪课程学习笔记，基础课程第4|5天
+description: 记录 小迪课程学习笔记，待整合
 ---
 
 # 文件上传下载
